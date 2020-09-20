@@ -30,7 +30,7 @@ public class LoginController {
 
         if (matchingCustomer != null) {
             model.addAttribute("greeting",
-                    "welcome, " + matchingCustomer.getName());
+                    "welcome, " + matchingCustomer.getName() + "!");
         }else {
             model.addAttribute("greeting",
                     "Can,t find customer");

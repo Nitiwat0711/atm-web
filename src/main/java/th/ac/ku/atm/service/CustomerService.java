@@ -29,7 +29,7 @@ public class CustomerService {
 
     public Customer findCustomer(String id) {
         for (Customer customer : customerList) {
-            if (customer.getId() == id)
+            if (customer.getId().equals(id))
                 return customer;
         }
         return null;
