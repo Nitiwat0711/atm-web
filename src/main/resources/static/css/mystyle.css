@@ -1,3 +1,6 @@
 body {
     font-family: 'Bai Jamjuree', sans-serif;
 }
+.form-control {
+    width:25%;
+}
