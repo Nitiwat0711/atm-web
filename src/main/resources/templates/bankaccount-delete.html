@@ -3,8 +3,8 @@
       layout:decorate="~{fragments/main_layout}"
       xmlns:th="https://www.thymeleaf.org">
 <div class="container" layout:fragment="content">
-    <h1>Edit Bank Account</h1>
-    <form th:action="@{/bankaccount/edit/{id}(id=${bankAccount.id})}"
+    <h1>Delete Bank Account</h1>
+    <form th:action="@{/bankaccount/delete/{id}(id=${bankAccount.id})}"
           th:object="${bankAccount}"
           method="POST">
 
@@ -25,11 +25,11 @@
 
         <div class="form-group">
             <label for="inputBalance">Balance</label>
-            <input type="text" th:field="*{balance}" class="form-control" id="inputBalance">
+            <input disabled type="text" th:field="*{balance}" class="form-control" id="inputBalance">
         </div>
 
         <div class="form-group">
-            <input type="submit" class="btn btn-warning" value="ยืนยันการแก้ไข">
+            <input type="submit" class="btn btn-danger" value="ยืนยันการลบ">
         </div>
     </form>
 </div>
