@@ -25,7 +25,7 @@ public class CustomerRestController {
     }
 
     @GetMapping("/{id}")
-    public Customer getOne(@PathVariable String id) {
+    public Customer getOne(@PathVariable int id) {
         return customerService.findCustomer(id);
     }
 }

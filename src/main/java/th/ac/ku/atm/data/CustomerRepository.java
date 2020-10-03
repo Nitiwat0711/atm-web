@@ -7,7 +7,7 @@ import th.ac.ku.atm.model.Customer;
 
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, String> {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 
 }

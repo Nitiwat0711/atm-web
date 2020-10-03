@@ -29,7 +29,7 @@ public class CustomerService {
         return repository.findAll();
     }
 
-    public Customer findCustomer(String id) {
+    public Customer findCustomer(int id) {
         try {
             return repository.findById(id).get();
         } catch (NoSuchElementException e) {

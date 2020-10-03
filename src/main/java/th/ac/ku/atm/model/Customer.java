@@ -7,23 +7,23 @@ import javax.persistence.Id;
 @Entity
 public class Customer {
     @Id
-    private String id;
+    private int id;
     private String name;
     private String pin;
 
     public Customer() {}
 
-    public Customer(String id, String name, String pin) {
+    public Customer(int id, String name, String pin) {
         this.id = id;
         this.name = name;
         this.pin = pin;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
