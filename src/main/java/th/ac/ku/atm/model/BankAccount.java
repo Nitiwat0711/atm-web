@@ -41,6 +41,14 @@ public class BankAccount {
         this.balance = balance;
     }
 
+//    public void depositMoney(double money){
+//        balance+=money;
+//    }
+//
+//    public void withdrawMoney(double money){
+//        balance-=money;
+//    }
+
     @Override
     public String toString() {
         return "BankAccount{" +
