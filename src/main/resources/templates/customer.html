@@ -8,17 +8,17 @@
     <form th:action="@{/customer}" method="POST">
         <div class="form-group">
             <label for="inputId">#Id</label>
-            <input type="input" class="form-control" name="id" id="inputId">
+            <input required type="input" class="form-control" name="id" id="inputId">
         </div>
 
         <div class="form-group">
         <label for="inputName">Name</label>
-        <input type="input" name="name" class="form-control" id="inputName">
+        <input required type="input" name="name" class="form-control" id="inputName">
         </div>
 
         <div class="form-group">
         <label for="inputPin">Pin</label>
-        <input type="password" name="pin" class="form-control" id="inputPin">
+        <input required type="password" name="pin" class="form-control" id="inputPin">
         </div>
 
         <div class="form-group">
