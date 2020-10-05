@@ -41,13 +41,17 @@ public class BankAccount {
         this.balance = balance;
     }
 
-//    public void depositMoney(double money){
-//        balance+=money;
-//    }
-//
-//    public void withdrawMoney(double money){
-//        balance-=money;
-//    }
+        public void depositMoney(double money){
+        if (money > 0) {
+            this.balance+=money;
+        }
+    }
+
+    public void withdrawMoney(double money){
+        if (money <= balance){
+            this.balance-=money;
+        }
+    }
 
     @Override
     public String toString() {

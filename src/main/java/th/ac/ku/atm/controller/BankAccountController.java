@@ -10,7 +10,6 @@ import th.ac.ku.atm.service.BankAccountService;
 @RequestMapping("/bankaccount")
 public class BankAccountController {
     private BankAccountService bankAccountService;
-    private double oldBalance;
 
     public BankAccountController(BankAccountService bankAccountService) {
         this.bankAccountService = bankAccountService;
@@ -47,15 +46,15 @@ public class BankAccountController {
     @GetMapping("/deposit/{id}")
     public String getDepositBankAccountPage(@PathVariable int id, Model model){
         BankAccount bankAccount = bankAccountService.getBankAccount(id);
-        oldBalance = bankAccount.getBalance();
         model.addAttribute("bankAccount", bankAccount);
         return "bankaccount-deposit";
     }
 
     @PostMapping("/deposit/{id}")
     public String depositAccount(@PathVariable int id,
-                                 @ModelAttribute BankAccount bankAccount, Model model){
-        bankAccount.setBalance( (bankAccount.getBalance() > 0) ? oldBalance+bankAccount.getBalance() : oldBalance);
+                                 @RequestParam double amount,Model model){
+        BankAccount bankAccount = bankAccountService.getBankAccount(id);
+        bankAccount.depositMoney(amount);
         bankAccountService.editBankAccount(bankAccount);
         model.addAttribute("bankaccounts", bankAccountService.getBankAccounts());
         return "redirect:/bankaccount";
@@ -64,15 +63,16 @@ public class BankAccountController {
     @GetMapping("/withdraw/{id}")
     public String getWithdrawBankAccountPage(@PathVariable int id, Model model){
         BankAccount bankAccount = bankAccountService.getBankAccount(id);
-        oldBalance = bankAccount.getBalance();
+//        oldBalance = bankAccount.getBalance();
         model.addAttribute("bankAccount", bankAccount);
         return "bankaccount-withdraw";
     }
 
     @PostMapping("/withdraw/{id}")
     public String withdrawAccount(@PathVariable int id,
-                                 @ModelAttribute BankAccount bankAccount, Model model){
-        bankAccount.setBalance((bankAccount.getBalance() <= oldBalance) ? oldBalance-bankAccount.getBalance() : oldBalance);
+                                  @RequestParam double amount, Model model){
+        BankAccount bankAccount = bankAccountService.getBankAccount(id);
+        bankAccount.withdrawMoney(amount);
         bankAccountService.editBankAccount(bankAccount);
         model.addAttribute("bankaccounts", bankAccountService.getBankAccounts());
         return "redirect:/bankaccount";
