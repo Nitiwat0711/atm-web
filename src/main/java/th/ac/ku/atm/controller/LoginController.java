@@ -37,7 +37,7 @@ public class LoginController {
             return "customeraccount";
         }else {
             model.addAttribute("greeting",
-                    "Can,t find customer");
+                    "Can't find customer");
             return "home";
         }
 
